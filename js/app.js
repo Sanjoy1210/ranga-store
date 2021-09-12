@@ -1,15 +1,22 @@
+const fetchedData = async url => {
+  const res = await fetch(url);
+  const data = await res.json();
+  return data;
+}
+
 // load product data
 const loadProducts = () => {
   const url = `https://fakestoreapi.com/products`;
   fetch(url)
     .then((response) => response.json())
     .then((data) => showProducts(data));
+  // const products = fetchedData(url);
+  // showProducts(products);
 };
 loadProducts();
 
 // show all product in UI 
 const showProducts = (products) => {
-  console.log(products);
   const allProducts = products.map((pd) => pd);
   for (const product of allProducts) {
     const image = product.image;
@@ -25,15 +32,21 @@ const showProducts = (products) => {
         <h5>Total ratings: ${product.rating.count}</h5>
         <h5>Average ratings: ${product.rating.rate}</h5>
         <h2>Price: $ ${product.price}</h2>
-        <button onclick="addToCart(${product.id}, ${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
-        <button id="details-btn" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Details</button>
+        <button onclick="addToCart(${product.id}, ${product.price})" id="addToCart-btn" class="buy-now btn btn-info text-white fw-medium">add to cart</button>
+        <button id="details-btn" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">Details</button>
       </div>
     `;
-    document.getElementById('exampleModalLabel').innerText = `${product.title}`;
-    document.getElementById('modal-body').innerText = `${product.description}`;
     document.getElementById("all-products").appendChild(div);
   }
 };
+
+const displayModal = productId => {
+  const product = fetchedData(`https://fakestoreapi.com/products/${productId}`);
+  console.log(product);
+  document.getElementById('exampleModalLabel').innerText = `${product.title}`;
+  document.getElementById('modal-body').innerText = `${product.description}`;
+  document.getElementById('exampleModal').setAttribute('aria-hidden', 'false');
+}
 
 // add to the cart
 let count = 0;
