@@ -1,3 +1,4 @@
+// load product data
 const loadProducts = () => {
   const url = `https://fakestoreapi.com/products`;
   fetch(url)
@@ -21,6 +22,8 @@ const showProducts = (products) => {
         </div>
         <h3>${product.title}</h3>
         <p>Category: ${product.category}</p>
+        <h5>Total ratings: ${product.rating.count}</h5>
+        <h5>Average ratings: ${product.rating.rate}</h5>
         <h2>Price: $ ${product.price}</h2>
         <button onclick="addToCart(${product.id}, ${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
         <button id="details-btn" class="btn btn-danger">Details</button>
@@ -29,6 +32,8 @@ const showProducts = (products) => {
     document.getElementById("all-products").appendChild(div);
   }
 };
+
+// add to the cart
 let count = 0;
 const addToCart = (id, price) => {
   count = count + 1;
@@ -39,6 +44,7 @@ const addToCart = (id, price) => {
   updateTotal();
 };
 
+// getInputvalue
 const getInputValue = (id) => {
   const element = document.getElementById(id).innerText;
   const converted = parseFloat(element);
@@ -62,15 +68,15 @@ const setInnerText = (id, value) => {
 const updateTaxAndCharge = () => {
   const priceConverted = getInputValue("price");
   if (priceConverted > 200) {
-    setInnerText("delivery-charge", 30.00);
+    setInnerText("delivery-charge", 30);
     setInnerText("total-tax", priceConverted * 0.2);
   }
   if (priceConverted > 400) {
-    setInnerText("delivery-charge", 50.00);
+    setInnerText("delivery-charge", 50);
     setInnerText("total-tax", priceConverted * 0.3);
   }
   if (priceConverted > 500) {
-    setInnerText("delivery-charge", 60.00);
+    setInnerText("delivery-charge", 60);
     setInnerText("total-tax", priceConverted * 0.4);
   }
 };
