@@ -27,6 +27,8 @@
 
   <!-- main section start -->
   <main class="main">
+
+    <!-- search field start -->
     <div class="search-field">
       <div class="search-box">
         <input id="input-field" class="search-field" type="text" />
@@ -36,12 +38,44 @@
         </button>
       </div>
     </div>
+    <!-- search field end -->
+
     <div class="row">
       <div class="col-md-9 col-lg-9 col-sm-7">
+        <!-- all products start -->
         <div id="all-products" class="">
-          <!-- <h1></h1> -->
+          
         </div>
+        <!-- all products end -->
+        <!-- modal start -->
+        <!-- Button trigger modal -->
+        <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Launch demo modal
+        </button> -->
+  
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body" id="modal-body">
+                ...
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- modal end -->
       </div>
+
+
+      <!-- cart start -->
       <div class="col-md-3 col-lg-3 col-sm-5 cart-main">
         <div class="cart" id="my-cart">
           <table class="table">
@@ -91,6 +125,7 @@
           </div>
         </div>
       </div>
+      <!-- cart end -->
     </div>
   </main>
   <!-- main section end -->
@@ -99,6 +134,9 @@
   <footer></footer>
   <!-- footer area end -->
 
+
+  <!-- bootstarp js link -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
   <!-- javascript  file link -->
   <script src="./js/app.js"></script>
 </body>
