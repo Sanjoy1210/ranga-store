@@ -18,6 +18,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <!-- font awesome link -->
+  <script src="https://kit.fontawesome.com/7178ddedfb.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -27,11 +30,12 @@
 
   <!-- main section start -->
   <main class="main">
-
+    <div class="container">
+      <h1 class="text-center mt-3 fw-bold text-secondary">Habluder Dokan <i class="fab fa-shopify"></i></h1>
     <!-- search field start -->
     <div class="search-field">
       <div class="search-box">
-        <input id="input-field" class="search-field" type="text" />
+        <input id="input-field" class="search-field" type="text" placeholder="Search your products" />
         <button type="button" class="btn btn-info text-white fw-medium search-button" data-toggle="button" aria-pressed="false"
           autocomplete="off" id="search-btn" onclick="loadProducts()">
           Search
@@ -120,6 +124,7 @@
         </div>
       </div>
       <!-- cart end -->
+    </div>
     </div>
   </main>
   <!-- main section end -->

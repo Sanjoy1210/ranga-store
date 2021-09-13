@@ -16,10 +16,10 @@ const showProducts = (products) => {
     div.classList.add("product");
     div.innerHTML = `
       <div class="single-product">
-        <div class="my-3">
+        <div class="mb-4">
           <img class="product-image" src="${image}"></img>
         </div>
-        <h3>${product.title}</h3>
+        <h3>${product.title.substr(0, 20)}</h3>
         <p>Category: ${product.category}</p>
         <h5>Total ratings: ${product.rating.count}</h5>
         <h5>Average ratings: ${product.rating.rate}</h5>
