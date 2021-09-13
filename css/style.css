@@ -1,6 +1,7 @@
 body {
   overflow-x: hidden;
   font-family: "Montserrat", sans-serif;
+  /* background-color: #f0f1f1!important; */
 }
 
 /* =======================
@@ -50,12 +51,13 @@ body {
   box-shadow: 0px 3px 10px #2125291a;
   margin: 4px;
   border: 1px solid transparent;
-  /* min-height: 32rem; */
+  background-color: rgba(255, 255, 255, 0.8);;
+  min-height: 32rem;
 }
 .single-product:hover {
   /* box-shadow: 4px 4px 7px gray; */
   border-radius: 10px;
-  border: 1px solid cyan;
+  border: 1px solid rgb(255, 71, 145);
 }
 .single-product h3 {
   font-size: 1.5rem;

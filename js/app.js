@@ -17,6 +17,7 @@ loadProducts();
 
 // show all product in UI 
 const showProducts = (products) => {
+  console.log(products);
   const allProducts = products.map((pd) => pd);
   for (const product of allProducts) {
     const image = product.image;
@@ -24,7 +25,7 @@ const showProducts = (products) => {
     div.classList.add("product");
     div.innerHTML = `
       <div class="single-product">
-        <div>
+        <div class="my-3">
           <img class="product-image" src="${image}"></img>
         </div>
         <h3>${product.title}</h3>
@@ -33,7 +34,7 @@ const showProducts = (products) => {
         <h5>Average ratings: ${product.rating.rate}</h5>
         <h2>Price: $ ${product.price}</h2>
         <button onclick="addToCart(${product.id}, ${product.price})" id="addToCart-btn" class="buy-now btn btn-info text-white fw-medium">add to cart</button>
-        <button id="details-btn" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">Details</button>
+        <button id="details-btn" class="btn btn-dark" onclick="displayModal(${product.id})" data-bs-toggle="modal" data-bs-target="#exampleModal">Details</button>
       </div>
     `;
     document.getElementById("all-products").appendChild(div);
@@ -41,10 +42,14 @@ const showProducts = (products) => {
 };
 
 const displayModal = productId => {
-  const product = fetchedData(`https://fakestoreapi.com/products/${productId}`);
-  console.log(product);
-  document.getElementById('exampleModalLabel').innerText = `${product.title}`;
-  document.getElementById('modal-body').innerText = `${product.description}`;
+  console.log(productId);
+  const url = `https://fakestoreapi.com/products/${productId}`;
+  fetch(url)
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById('exampleModalLabel').innerText = `${data.title}`;
+    document.getElementById('modal-body').innerText = `${data.description}`;
+  });
   document.getElementById('exampleModal').setAttribute('aria-hidden', 'false');
 }
 
