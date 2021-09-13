@@ -1,23 +1,14 @@
-const fetchedData = async url => {
-  const res = await fetch(url);
-  const data = await res.json();
-  return data;
-}
-
 // load product data
 const loadProducts = () => {
   const url = `https://fakestoreapi.com/products`;
   fetch(url)
     .then((response) => response.json())
     .then((data) => showProducts(data));
-  // const products = fetchedData(url);
-  // showProducts(products);
 };
 loadProducts();
 
 // show all product in UI 
 const showProducts = (products) => {
-  console.log(products);
   const allProducts = products.map((pd) => pd);
   for (const product of allProducts) {
     const image = product.image;
@@ -42,15 +33,13 @@ const showProducts = (products) => {
 };
 
 const displayModal = productId => {
-  console.log(productId);
   const url = `https://fakestoreapi.com/products/${productId}`;
   fetch(url)
-  .then(res => res.json())
-  .then(data => {
-    document.getElementById('exampleModalLabel').innerText = `${data.title}`;
-    document.getElementById('modal-body').innerText = `${data.description}`;
+    .then(res => res.json())
+    .then(data => {
+      document.getElementById('exampleModalLabel').innerText = `${data.title}`;
+      document.getElementById('modal-body').innerText = `${data.description}`;
   });
-  document.getElementById('exampleModal').setAttribute('aria-hidden', 'false');
 }
 
 // add to the cart
@@ -73,9 +62,9 @@ const getInputValue = (id) => {
 
 // main price update function
 const updatePrice = (id, value) => {
-  const convertedOldPrice = getInputValue(id);
-  const convertPrice = parseFloat(value);
-  const total = convertedOldPrice + convertPrice;
+  const previousPrice = getInputValue(id);
+  const newPrice = parseFloat(value);
+  const total = previousPrice + newPrice;
   document.getElementById(id).innerText = parseFloat(total.toFixed(2));
 };
 
